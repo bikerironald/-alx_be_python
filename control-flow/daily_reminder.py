@@ -2,8 +2,8 @@
 # daily_reminder.py
 
 task = input("Enter the task description: ")
-priority = input("Enter the task priority (high, medium, low): ").lower()
-time_bound = input("Is the task time-bound? (yes or no): ").lower()
+priority = input("Enter the task priority (high, medium, low): ").strip().lower()
+time_bound = input("Is the task time-bound? (yes or no): ").strip().lower()
 
 print("\n--- Daily Reminder ---")
 
