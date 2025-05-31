@@ -1,3 +1,20 @@
+# # Simple Calculator with Match Case
+# num1 = int(input("Enter the first number: "))
+# num2 = int(input("Enter the second number: "))
+# operation = input("Enter the operation (+, -, *, /): ")
+# def calculate(num1, num2, operation):
+#     match operation:
+#         case '+':
+#             print(num1+num2)
+#         case '-':
+#             print (num1-num2)
+#         case '*':
+#             print(num1*num2)
+#         case '/':
+#             print(num1 / num2)
+# result = calculate(num1, num2, operation)
+# print(f"The result of {result}")
+
 # Simple Calculator with Match Case
 num1 = int(input("Enter the first number: "))
 num2 = int(input("Enter the second number: "))
@@ -12,10 +29,12 @@ def calculate(num1, num2, operation):
         case '*':
             return num1 * num2
         case '/':
-            if num2 == 0:
-                return "Error: Division by zero"
-            return num1 / num2
+            if num2 != 0:
+                return num1 / num2
+            else:
+                return "Error: Division by zero."
         case _:
-            return "Error: Invalid operation"
+            return "Invalid operation."
+
 result = calculate(num1, num2, operation)
-print(f"The result of {num1} {operation} {num2} is: {result}")
+print(f"The result is: {result}")
