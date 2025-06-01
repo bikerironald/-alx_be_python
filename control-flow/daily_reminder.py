@@ -1,22 +1,25 @@
-# Create a simplified Python script that uses conditional statements, Match Case, and loops to remind the user about a single, priority task for the day based on time sensitivity.
 # daily_reminder.py
+# Prompt for task to be completed
+task = input("Enter your task: ")
+priority = input("Priority (high/medium/low): ").lower()
+time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-Task = input("Enter the task description: ")
-Priority = input("Enter the task priority (high/medium/low): ").strip().lower()
-Time_bound = input("Is the task time-bound? (yes/no): ").strip().lower()
-
-print("\n--- Daily Reminder ---")
-
-match Priority:
+# Process using match-case
+match priority:
     case "high":
-        message = f"Task: {Task} [HIGH PRIORITTask]"
-        message = f"Task: {Task} [Medium Priority]"
+        if time_bound == "yes":
+            print(f"Reminder: '{task}' is a high priority task that requires immediate attention today!")
+        else:
+            print(f"Reminder: '{task}' is a high priority task. Try to complete it as soon as possible.")
+    case "medium":
+        if time_bound == "yes":
+            print(f"Reminder: '{task}' is a medium priority task that requires attention today.")
+        else:
+            print(f"Reminder: '{task}' is a medium priority task. Plan to do it soon.")
     case "low":
-        message = f"Task: {Task} [Low Priority]"
+        if time_bound == "yes":
+            print(f"Reminder: '{task}' is a low priority task that requires attention today.")
+        else:
+            print(f"Note: '{task}' is a low priority task. Consider completing it when you have free time.")
     case _:
-        message = f"Task: {Task} [Unknown Priority]"
-if Time_bound == "yes":
-    message += " — This task requires immediate attention today!"
-
-# Display the final reminder
-print(message)
+        print("Invalid priority entered. Please enter high, medium, or low.")
