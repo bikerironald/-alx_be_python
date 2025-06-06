@@ -1,4 +1,19 @@
-def perform_operation(num1: float, num2: float, operation: str):
+#calcuctor 
+def perform_operation(num1, num2, operation):
+    """
+    Perform basic arithmetic operations on two numbers.
+
+    Parameters:
+    num1 (float): The first number.
+    num2 (float): The second number.
+    operation (str): The operation to perform ('add', 'subtract', 'multiply', 'divide').
+
+    Returns:
+    float: The result of the operation.
+    
+    Raises:
+    ValueError: If the operation is not recognized or if division by zero is attempted.
+    """
     if operation == 'add':
         return num1 + num2
     elif operation == 'subtract':
@@ -7,22 +22,7 @@ def perform_operation(num1: float, num2: float, operation: str):
         return num1 * num2
     elif operation == 'divide':
         if num2 == 0:
-            return "Error: Division by zero"
+           return "Error: Cannot divide by zero."
         return num1 / num2
     else:
-        return "Error: Invalid operation"
-
-# Optional: Allow the file to be run directly for testing
-def main():
-    print("Arithmetic Operations (Standalone Test)")
-    try:
-        num1 = float(input("Enter the first number: "))
-        num2 = float(input("Enter the second number: "))
-        operation = input("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
-        result = perform_operation(num1, num2, operation)
-        print(f"Result: {result}")
-    except ValueError:
-        print("Error: Please enter valid numbers.")
-
-if __name__ == "__main__":
-    main()
+        raise ValueError("Operation not recognized. Use 'add', 'subtract', 'multiply', or 'divide'.")
