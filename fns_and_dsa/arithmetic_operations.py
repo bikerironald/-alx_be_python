@@ -8,7 +8,21 @@ def perform_operation(num1: float, num2: float, operation: str):
     elif operation == 'divide':
         if num2 == 0:
             return "Error: Division by zero"
-        
         return num1 / num2
     else:
         return "Error: Invalid operation"
+
+# Optional: Allow the file to be run directly for testing
+def main():
+    print("Arithmetic Operations (Standalone Test)")
+    try:
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+        operation = input("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
+        result = perform_operation(num1, num2, operation)
+        print(f"Result: {result}")
+    except ValueError:
+        print("Error: Please enter valid numbers.")
+
+if __name__ == "__main__":
+    main()
